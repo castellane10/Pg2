@@ -26,7 +26,7 @@ La aplicación está diseñada para gestionar la asignación de solicitudes a us
 ## Despliegue
 
 La aplicación está desplegada en [Netlify](https://www.netlify.com/) y puedes acceder a ella mediante el siguiente enlace:
-
+[https://pg2.netlify.app](https://pg2.netlify.app)
 
 
 ## Instalación y uso localmente
