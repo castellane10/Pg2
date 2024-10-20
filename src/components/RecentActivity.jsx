@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useFetch } from '../hooks/useFetch';
 
 const RecentActivity = () => {
-    const { data: assignments, loading: assignmentsLoading, error: assignmentsError } = useFetch('https://rest-api-prueba-production.up.railway.app/api/assignments', null, true);
+    const { data: assignments, loading: assignmentsLoading, error: assignmentsError } = useFetch('https://pg2backend-production.up.railway.app/api/assignments', null, true);
 
-    const { data: users, loading: usersLoading, error: usersError } = useFetch('https://rest-api-prueba-production.up.railway.app/api/user', null, true);
+    const { data: users, loading: usersLoading, error: usersError } = useFetch('https://pg2backend-production.up.railway.app/api/user', null, true);
 
     const [requestDetails, setRequestDetails] = useState(null);
     const [requestLoading, setRequestLoading] = useState(true);
@@ -18,7 +18,7 @@ const RecentActivity = () => {
         if (latestAssignment) {
             const fetchRequestDetails = async () => {
                 try {
-                    const response = await fetch(`https://rest-api-prueba-production.up.railway.app/api/requests/${latestAssignment.request}`);
+                    const response = await fetch(`https://pg2backend-production.up.railway.app/api/requests/${latestAssignment.request}`);
                     if (!response.ok) {
                         throw new Error('Error al cargar los detalles de la solicitud');
                     }

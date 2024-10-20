@@ -21,7 +21,7 @@ const RequestDetails = ({ requestDetails }) => {
             body: JSON.stringify({ estado: newStatus }),
         };
 
-        await fetchData(`https://rest-api-prueba-production.up.railway.app/api/requests/${requestDetails.id}`, options);
+        await fetchData(`https://pg2backend-production.up.railway.app/api/requests/${requestDetails.id}`, options);
 
         if (info.error) {
             console.error("Error al actualizar el estado:", info.error);

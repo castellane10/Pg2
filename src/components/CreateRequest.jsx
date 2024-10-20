@@ -8,7 +8,7 @@ const CreateRequest = () => {
         estado: ''
     });
 
-    const { data, loading, error, fetchData } = useFetch('https://rest-api-prueba-production.up.railway.app/api/requests', {
+    const { data, loading, error, fetchData } = useFetch('https://pg2backend-production.up.railway.app/api/requests', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

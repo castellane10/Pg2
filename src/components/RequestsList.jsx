@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 
 const RequestsList = () => {
-  const { data, loading, error } = useFetch('https://rest-api-prueba-production.up.railway.app/api/requests');
+  const { data, loading, error } = useFetch('https://pg2backend-production.up.railway.app/api/requests');
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;

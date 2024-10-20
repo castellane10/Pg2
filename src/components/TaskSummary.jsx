@@ -8,7 +8,7 @@ const TaskSummary = () => {
         urgentes: 0
     });
 
-    const { data: requests, loading, error } = useFetch('https://rest-api-prueba-production.up.railway.app/api/requests', null, true);
+    const { data: requests, loading, error } = useFetch('https://pg2backend-production.up.railway.app/api/requests', null, true);
 
     useEffect(() => {
         if (requests && Array.isArray(requests)) {

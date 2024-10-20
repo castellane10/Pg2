@@ -38,7 +38,7 @@ Si deseas ejecutar esta aplicación en tu entorno local, sigue los siguientes pa
 
 2. Accede al directorio del proyecto:
    ```bash
-   cd front-react-prueba
+   cd front-pg2
 
 3. yarn install
 

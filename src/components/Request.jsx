@@ -47,7 +47,7 @@ const Request = () => {
             selectedUserName = selectedUser ? selectedUser.nombre : '';
         }
 
-        const url = `https://rest-api-prueba-production.up.railway.app/api/requests/${id}/assign`;
+        const url = `https://pg2backend-production.up.railway.app/api/requests/${id}/assign`;
 
         const response = await fetch(url, {
             method: 'POST',

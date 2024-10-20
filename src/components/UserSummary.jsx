@@ -1,9 +1,9 @@
 import { useFetch } from '../hooks/useFetch';
 
 const UserSummary = () => {
-    const { data: users, loading: usersLoading, error: usersError } = useFetch('https://rest-api-prueba-production.up.railway.app/api/user', null, true);
+    const { data: users, loading: usersLoading, error: usersError } = useFetch('https://pg2backend-production.up.railway.app/api/user', null, true);
 
-    const { data: assignments, loading: assignmentsLoading, error: assignmentsError } = useFetch('https://rest-api-prueba-production.up.railway.app/api/assignments', null, true);
+    const { data: assignments, loading: assignmentsLoading, error: assignmentsError } = useFetch('https://pg2backend-production.up.railway.app/api/assignments', null, true);
 
     if (usersLoading || assignmentsLoading) return <p>Cargando...</p>;
     if (usersError || assignmentsError) return <p>Error: {usersError || assignmentsError}</p>;
