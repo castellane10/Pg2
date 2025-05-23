@@ -85,7 +85,7 @@ const CreateRequest = () => {
                 <option value="">Selecciona un estado</option>
                 <option value="Pendiente">Pendiente</option>
                 <option value="Completado">Completado</option>
-                <option value="Urgente">Urgente</option>
+                <option value="Activa">Activa</option>
             </select>
             </div>
 

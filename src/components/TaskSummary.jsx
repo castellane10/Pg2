@@ -5,7 +5,7 @@ const TaskSummary = () => {
     const [counts, setCounts] = useState({
         pendientes: 0,
         completadas: 0,
-        urgentes: 0
+        activas: 0
     });
 
     const { data: requests, loading, error } = useFetch('https://pg2backend-production.up.railway.app/api/requests', null, true);
@@ -14,9 +14,9 @@ const TaskSummary = () => {
         if (requests && Array.isArray(requests)) {
             const pendientes = requests.filter(request => request.estado === 'Pendiente').length;
             const completadas = requests.filter(request => request.estado === 'Completado').length;
-            const urgentes = requests.filter(request => request.estado === 'Urgente').length;
+            const activas = requests.filter(request => request.estado === 'Activa').length;
 
-            setCounts({ pendientes, completadas, urgentes });
+            setCounts({ pendientes, completadas, activas });
         }
     }, [requests]);
 
@@ -43,8 +43,8 @@ const TaskSummary = () => {
                 </div>
 
                 <div className="p-4 bg-white rounded-lg shadow">
-                    <p className="text-xl font-bold text-red-600">{counts.urgentes}</p>
-                    <p className="text-gray-600">Solicitudes Urgentes</p>
+                    <p className="text-xl font-bold text-red-600">{counts.activas}</p>
+                    <p className="text-gray-600">Solicitudes Activas</p>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Home, RequestsList, Request, CreateRequest } from './components';
 import Navbar from './components/Navbar';
 import UserSummary from './components/UserSummary';
+import ChatbotWidget from './components/ChatbotWidget';
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
         <Route path="/requests" element={<RequestsList />} />
         <Route path="/requests/:id/assign" element={<Request />} />
       </Routes>
+
+      <ChatbotWidget />
     </>
   )
 }

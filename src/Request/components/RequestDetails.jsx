@@ -4,7 +4,7 @@ import { useFetch } from '../../hooks/useFetch';
 const RequestDetails = ({ requestDetails }) => {
     // Usa el estado actual de la solicitud como valor predeterminado
     const [status, setStatus] = useState(requestDetails.estado);
-    const availableStatuses = ['Pendiente', 'Completado', 'Urgente'];
+    const availableStatuses = ['Pendiente', 'Completado', 'Activa'];
     
     const { fetchData, info } = useFetch();  // info contiene { data, loading, error }
 

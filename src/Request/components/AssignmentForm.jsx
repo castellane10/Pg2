@@ -1,79 +1,39 @@
 import { useState } from 'react';
 
-const AssignmentForm = ({ users, handleSubmit, formData, handleChange, assignLoading, getUserWithLeastTasks }) => {
+const AssignmentForm = ({ users, handleSubmit, formData, handleChange, assignLoading }) => {
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow-md">
             <div className="mb-4">
-                <label htmlFor="assignMethod" className="block text-sm font-medium text-gray-700">
-                    Método de Asignación
+                <label htmlFor="usuarioId" className="block text-sm font-medium text-gray-700">
+                    Asignar a Usuario
                 </label>
                 <select
-                    id="assignMethod"
-                    name="assignMethod"
-                    value={formData.assignMethod}
+                    id="usuarioId"
+                    name="usuarioId"
+                    value={formData.usuarioId}
                     onChange={handleChange}
                     required
-                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
                 >
-                    <option value="">Selecciona un método</option>
-                    <option value="Aleatorio">Aleatorio</option>
-                    <option value="Por Equidad">Por Equidad</option>
-                    <option value="Directamente">Directamente</option>
+                    <option value="">Selecciona un usuario</option>
+                    {users.map(user => (
+                        <option key={user.id} value={user.id}>
+                            {user.nombre}
+                        </option>
+                    ))}
                 </select>
             </div>
 
-            {formData.assignMethod === 'Por Equidad' && (
-                <div className="mb-4">
-                    <label htmlFor="roleId" className="block text-sm font-medium text-gray-700">
-                        Selecciona el Rol
-                    </label>
-                    <select
-                        id="roleId"
-                        name="roleId"
-                        value={formData.roleId}
-                        onChange={handleChange}
-                        required
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    >
-                        <option value="">Selecciona un rol</option>
-                        <option value="1">Employer</option>
-                        <option value="2">Analyst</option>
-                    </select>
-                </div>
-            )}
+            <input type="hidden" name="assignMethod" value="Directamente" />
 
-            <div className="mb-4">
-                <label htmlFor="usuarioId" className="block text-sm font-medium text-gray-700">
-                    Usuario
-                </label>
-                {users && (
-                    <select
-                        id="usuarioId"
-                        name="usuarioId"
-                        value={formData.usuarioId}
-                        onChange={handleChange}
-                        required={formData.assignMethod !== 'Aleatorio' && formData.assignMethod !== 'Por Equidad'}
-                        disabled={formData.assignMethod === 'Aleatorio' || formData.assignMethod === 'Por Equidad'}
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    >
-                        <option value="">Selecciona un usuario</option>
-                        {users.map(user => (
-                            <option key={user.id} value={user.id}>
-                                {user.nombre}
-                            </option>
-                        ))}
-                    </select>
-                )}
-            </div>
-
-            <button 
-                type="submit" 
+            <button
+                type="submit"
                 disabled={assignLoading}
-                className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
-                    assignLoading ? 'bg-gray-400' : 'bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500'
-                } transition-all`}
+                className={`w-full flex justify-center py-2 px-4 rounded-lg shadow text-sm font-semibold text-white transition-all duration-200 ${
+                    assignLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 focus:ring focus:ring-blue-300'
+                }`}
             >
-                {assignLoading ? 'Enviando...' : 'Asignar Solicitud'}
+                {assignLoading ? 'Asignando...' : 'Asignar Solicitud'}
             </button>
         </form>
     );
