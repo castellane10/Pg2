@@ -55,7 +55,7 @@ const ChatbotWidget = () => {
         )}
 
       {isOpen && (
-        <div className="w-80 h-96 bg-white shadow-xl rounded-lg flex flex-col mt-2">
+        <div className="w-[800px] h-[800px] bg-white shadow-xl rounded-lg flex flex-col mt-2">
           <div className="flex justify-between items-center bg-blue-600 text-white p-3 rounded-t-lg">
             <h2 className="font-semibold">Asistente</h2>
             <button onClick={toggleChat}>✖</button>
